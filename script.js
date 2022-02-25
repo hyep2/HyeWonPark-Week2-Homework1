@@ -37,9 +37,6 @@ const passReqs = () => {
 }
 
 
-
-
-
 //declaring variables for possible values for each character type
 let randomNum = '0123456789'
 let randomLower = 'abcdefghijklmnopqrstuvwxyz'

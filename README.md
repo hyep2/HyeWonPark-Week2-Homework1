@@ -1,0 +1,6 @@
+Project Title: Password Generator
+This application will generate a random password based on the selected criteria by user (number of characters,lowercase, uppercase, numeric, and/or special characters. This app will run in the browser and was developed using HTML, CSS, and JavaScript code. 
+
+Motivation: The objective of this application is to create a strong and unpredictable password for any user. It is often difficult for users to think of creative passwords that can be easily leaked. By applying this app, it will make it much more convenient for users when creating an account. 
+
+Description/Logic of App Development: HTML and CSS were used to create the basic layout and Javascript was used to feature the behavior of the app. The logic behind this password generator was to take in all the user's selected criterias and then incorporate them in the first part of the password. For example, if they want only lowercase and special characters in their password, the first two characters of the password would have a random lowercase letter and a random special character. THis is the ensure that the criteria is met from the beginning. Then, for the remaining characters of the password, the generator will combine all the possible lowercase and special characters and generate random characters.
