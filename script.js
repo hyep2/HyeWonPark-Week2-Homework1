@@ -1,6 +1,10 @@
 document.getElementById('generate').addEventListener('click', () => {
   passReqs();
   generatePw();
+  //need to reset conditions to generate a new password again
+  myPassword = "";
+  pwChars = 0;
+  conditionsMet = 0;
 })
 
 //boolean for password conditions
@@ -82,4 +86,5 @@ let generatePw = () => {
 
 
   alert("Your generated password is: " + myPassword)
+
 }
