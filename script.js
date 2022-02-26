@@ -1,10 +1,16 @@
 document.getElementById('generate').addEventListener('click', () => {
-  passReqs();
-  generatePw();
-  //need to reset conditions to generate a new password again
+  //need to reset conditions 
   myPassword = "";
   pwChars = 0;
   conditionsMet = 0;
+  randomAll = '';
+
+  passReqs();
+  generatePw();
+
+
+
+
 })
 
 //boolean for password conditions
@@ -18,25 +24,44 @@ let conditionsMet = 0; //number of conditions that are true
 const passReqs = () => {
   //asks users for the password conditions
   pwChars = parseInt(prompt("How many characters do you want in your password (8-128 chars limit)?"));
-  isLowercase = confirm("Do you want lowercase characters?")
-  isUppercase = confirm("Do you want uppercase characters?")
-  isNumeric = confirm("Do you want numbers?")
-  isSpecialchar = confirm("Do you want special characters?")
-
-  //ensures user chooses at least one character type; if not, will prompt them to try again from the beginning
-  if (!isLowercase && !isUppercase && !isNumeric && !isSpecialchar) {
-    alert("Need at least one character type. Try again!");
+  console.log(pwChars)
+  if (pwChars < 8 || pwChars > 128 || !pwChars) {
+    alert("Not within range!");
     passReqs();
   }
+  else {
+    isLowercase = confirm("Do you want lowercase characters?")
+    console.log(isLowercase)
+    isUppercase = confirm("Do you want uppercase characters?")
+    console.log(isUppercase)
+
+    isNumeric = confirm("Do you want numbers?")
+    console.log(isNumeric)
+
+    isSpecialchar = confirm("Do you want special characters?")
+    console.log(isSpecialchar)
 
 
-  //trying to determine how many conditions are true
-  let arrayCond = [isLowercase, isUppercase, isSpecialchar, isNumeric];
-  for (let i = 0; i < arrayCond.length; i++) {
-    if (arrayCond[i] === true) {
-      conditionsMet++;
+    //ensures user chooses at least one character type; if not, will prompt them to try again from the beginning
+    if (!isLowercase && !isUppercase && !isNumeric && !isSpecialchar) {
+      alert("Need at least one character type. Try again!");
+
+      passReqs();
     }
+    else {
+      //trying to determine how many conditions are true
+      let arrayCond = [isLowercase, isUppercase, isSpecialchar, isNumeric];
+      for (let i = 0; i < arrayCond.length; i++) {
+        if (arrayCond[i] === true) {
+          conditionsMet++;
+        }
+      }
+    }
+
+
+
   }
+
 
 }
 
@@ -55,6 +80,7 @@ let randomAll = '';
 
 
 let myPassword = '';
+
 let generatePw = () => {
 
   //these if statements make sure the minimum requiremnt is met within the first characters of the password
@@ -84,7 +110,7 @@ let generatePw = () => {
   }
 
 
-
+  //display password
   alert("Your generated password is: " + myPassword)
-
+  document.getElementById('password').innerHTML = myPassword;
 }
