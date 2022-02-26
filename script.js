@@ -24,22 +24,16 @@ let conditionsMet = 0; //number of conditions that are true
 const passReqs = () => {
   //asks users for the password conditions
   pwChars = parseInt(prompt("How many characters do you want in your password (8-128 chars limit)?"));
-  console.log(pwChars)
   if (pwChars < 8 || pwChars > 128 || !pwChars) {
     alert("Not within range!");
     passReqs();
   }
   else {
     isLowercase = confirm("Do you want lowercase characters?")
-    console.log(isLowercase)
     isUppercase = confirm("Do you want uppercase characters?")
-    console.log(isUppercase)
-
     isNumeric = confirm("Do you want numbers?")
-    console.log(isNumeric)
-
     isSpecialchar = confirm("Do you want special characters?")
-    console.log(isSpecialchar)
+    
 
 
     //ensures user chooses at least one character type; if not, will prompt them to try again from the beginning
